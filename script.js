@@ -636,8 +636,7 @@ function renderPhase2BeforeActions() {
     const epButton =
         createActionButton(
             "NEW EP",
-            LINKS.iqiyi,
-            "Updating..."
+        createTextBox("Updating...")
         );
 
     streamingActions.appendChild(epButton);
@@ -649,7 +648,7 @@ function renderPhase2BeforeActions() {
 
         createActionButton(
             "TRENDING",
-            LINKS.howToTrend
+        createTextBox("Hashtag: #TheInvisibleDragonSpecial")
         )
 
     );
