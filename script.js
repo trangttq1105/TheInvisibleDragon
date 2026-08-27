@@ -29,7 +29,7 @@ const CONFIG = {
         views: 0,
         posts: 0,
         countries: 0,
-        numberOne: 0
+        numberOne: 10
     },
 
 
