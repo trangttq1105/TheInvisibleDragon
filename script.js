@@ -10,7 +10,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    trailerTime: "2026-08-24T17:11:00+07:00",
+    trailerTime: "2026-08-27T17:11:00+07:00",
 
 
     // ========================================================
@@ -18,7 +18,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    specialEPTime: "2026-08-27T17:40:00+07:00",
+    specialEPTime: "2026-08-29T16:42:00+07:00",
 
 
     // ========================================================
@@ -26,10 +26,10 @@ const CONFIG = {
     // ========================================================
 
     trailerAchievement: {
-        views: 0,
-        posts: 0,
-        countries: 0,
-        numberOne: 0
+        views: "2.000.000",
+        posts: "200.000",
+        countries: "40",
+        numberOne: "10"
     },
 
 
@@ -631,10 +631,15 @@ function renderPhase2BeforeActions() {
     trendingActions.innerHTML = "";
 
 
-    // NEW EP
+    // STREAMING
 
     const epButton =
-    
+        createActionButton(
+            "NEW EP",
+            LINKS.iqiyi,
+            "Updating..."
+        );
+
     streamingActions.appendChild(epButton);
 
 
@@ -642,7 +647,9 @@ function renderPhase2BeforeActions() {
 
     trendingActions.appendChild(
 
-        createTextBox("Hashtag: #TheInvisibleDragonSpecial")
+        createActionButton(
+            "TRENDING",
+            LINKS.howToTrend
         )
 
     );
