@@ -26,10 +26,10 @@ const CONFIG = {
     // ========================================================
 
     trailerAchievement: {
-        views: 0,
-        posts: 0,
-        countries: 0,
-        numberOne: 10
+        views: "2.000.000",
+        posts: "200.000",
+        countries: "40",
+        numberOne: "10"
     },
 
 
