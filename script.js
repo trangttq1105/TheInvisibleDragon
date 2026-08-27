@@ -10,7 +10,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    trailerTime: "2026-08-27T17:11:00+07:00",
+    trailerTime: "2026-08-25T17:11:00+07:00",
 
 
     // ========================================================
@@ -18,7 +18,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    specialEPTime: "2026-08-29T16:42:00+07:00",
+    specialEPTime: "2026-08-27T22:16:00+07:00",
 
 
     // ========================================================
@@ -176,6 +176,12 @@ const streamingActions =
 
 const trendingActions =
     document.getElementById("trendingActions");
+
+const streamingColumnTitle =
+    document.querySelector(".streaming-column h4");
+
+const trendingColumnTitle =
+    document.querySelector(".trending-column h4");
 
 const achievementContent =
     document.getElementById("achievementContent");
@@ -395,6 +401,9 @@ function createTextBox(text) {
 
 function showPhase1Before() {
 
+    streamingColumnTitle.textContent = "STREAMING";
+trendingColumnTitle.textContent = "TRENDING";
+
     eventMessage.innerHTML =
         "The Invisible Dragon official trailer will be released at";
 
@@ -440,6 +449,9 @@ trendingActions.appendChild(
 
 function showPhase1After() {
 
+    streamingColumnTitle.textContent = "STREAMING";
+trendingColumnTitle.textContent = "TRENDING";
+    
     eventMessage.innerHTML =
         "<strong>The Invisible Dragon</strong> trailer already released";
 
@@ -626,32 +638,39 @@ function showPhase2After() {
 
 function renderPhase2BeforeActions() {
 
+    // Change column titles
+
+    streamingColumnTitle.textContent =
+        "NEW EPISODE";
+
+    trendingColumnTitle.textContent =
+        "TRENDING";
+
+
+    // Clear existing actions
+
     streamingActions.innerHTML = "";
 
     trendingActions.innerHTML = "";
 
 
-    // STREAMING
+    // -----------------------------
+    // NEW EPISODE
+    // -----------------------------
 
-    const epButton =
-        createActionButton(
-            "NEW EP",
-            LINKS.iqiyi,
-            "Updating..."
-        );
-
-    streamingActions.appendChild(epButton);
+    streamingActions.appendChild(
+        createTextBox("Updating...")
+    );
 
 
+    // -----------------------------
     // TRENDING
+    // -----------------------------
 
     trendingActions.appendChild(
-
-        createActionButton(
-            "TRENDING",
-            LINKS.howToTrend
+        createTextBox(
+            "Hashtag: #TheInvisibleDragonSpecialEP"
         )
-
     );
 
 }
@@ -663,24 +682,25 @@ function renderPhase2BeforeActions() {
 
 function renderPhase2AfterActions() {
 
+    // Change column titles
+
+    streamingColumnTitle.textContent =
+        "NEW EPISODE";
+
+    trendingColumnTitle.textContent =
+        "TRENDING";
+
+
+    // Clear existing actions
+
     streamingActions.innerHTML = "";
 
     trendingActions.innerHTML = "";
 
 
     // -----------------------------
-    // STREAMING
+    // NEW EPISODE
     // -----------------------------
-
-    streamingActions.appendChild(
-
-        createActionButton(
-            "NEW EP",
-            LINKS.iqiyi
-        )
-
-    );
-
 
     streamingActions.appendChild(
 
@@ -742,18 +762,8 @@ function renderPhase2AfterActions() {
 
     trendingActions.appendChild(
 
-        createActionButton(
-            "TRENDING",
-            LINKS.howToTrend
-        )
-
-    );
-
-
-    trendingActions.appendChild(
-
         createTextBox(
-            `Hashtag: ${LINKS.epHashtag}`
+            "Hashtag: #TheInvisibleDragonSpecialEP"
         )
 
     );
@@ -769,7 +779,6 @@ function renderPhase2AfterActions() {
     );
 
 }
-
 
 // ============================================================
 // PHASE 1 ACHIEVEMENT
