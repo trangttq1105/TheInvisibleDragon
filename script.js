@@ -18,7 +18,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    specialEPTime: "2026-08-27T17:40:00+07:00",
+    specialEPTime: "2026-08-27T17:50:00+07:00",
 
 
     // ========================================================
@@ -130,7 +130,7 @@ const LINKS = {
         "https://www.iq.com/?lang=en_us",
 
     epHashtag:
-        "#TheInvisibleDragonSpecialEP",
+        "#TheInvisibleDragonSpecial",
 
     epPost:
         "https://x.com/intent/tweet?text=%0A%0A%23TheInvisibleDragonSpecialEP",
@@ -662,17 +662,10 @@ function renderPhase2AfterActions() {
 
 
     // -----------------------------
-    // STREAMING
+    // NEW EP
     // -----------------------------
 
     streamingActions.appendChild(
-
-        createActionButton(
-            "NEW EP",
-            LINKS.iqiyi
-        )
-
-    );
 
 
     streamingActions.appendChild(
@@ -734,13 +727,6 @@ function renderPhase2AfterActions() {
     // -----------------------------
 
     trendingActions.appendChild(
-
-        createActionButton(
-            "TRENDING",
-            LINKS.howToTrend
-        )
-
-    );
 
 
     trendingActions.appendChild(
