@@ -10,7 +10,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    trailerTime: "2026-08-27T16:30:00+07:00",
+    trailerTime: "2026-08-27T16:42:00+07:00",
 
 
     // ========================================================
@@ -18,7 +18,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    specialEPTime: "2026-08-29T16:30:00+07:00",
+    specialEPTime: "2026-08-29T16:42:00+07:00",
 
 
     // ========================================================
@@ -478,15 +478,6 @@ function renderTrailerActions() {
     // STREAMING
     // -----------------------------
 
-    streamingActions.appendChild(
-
-        createActionButton(
-            "STREAMING",
-            LINKS.howToStream
-        )
-
-    );
-
 
     streamingActions.appendChild(
 
@@ -546,16 +537,6 @@ function renderTrailerActions() {
     // -----------------------------
     // TRENDING
     // -----------------------------
-
-    trendingActions.appendChild(
-
-        createActionButton(
-            "TRENDING",
-            LINKS.howToTrend
-        )
-
-    );
-
 
     trendingActions.appendChild(
 
