@@ -26,8 +26,8 @@ const CONFIG = {
     // ========================================================
 
     trailerAchievement: {
-        views: 3.500.000,
-        posts: 200.000,
+        views: 3500000,
+        posts: 200000,
         countries: 30,
         numberOne: 10
     },
