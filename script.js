@@ -631,14 +631,10 @@ function renderPhase2BeforeActions() {
     trendingActions.innerHTML = "";
 
 
-    // STREAMING
+    // NEW EP
 
     const epButton =
-        createActionButton(
-            "NEW EP",
-        createTextBox("Updating...")
-        );
-
+    
     streamingActions.appendChild(epButton);
 
 
@@ -646,8 +642,6 @@ function renderPhase2BeforeActions() {
 
     trendingActions.appendChild(
 
-        createActionButton(
-            "TRENDING",
         createTextBox("Hashtag: #TheInvisibleDragonSpecial")
         )
 
