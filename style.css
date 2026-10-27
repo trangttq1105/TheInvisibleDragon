@@ -309,7 +309,7 @@ body {
 
 .action-button:hover {
     background: var(--color-primary);
-    color: #ffffff;
+    color: #9d2f2f;
     transform: translateY(-2px);
 }
 
