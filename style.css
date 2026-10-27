@@ -25,8 +25,14 @@ body {
 
     font-family: Arial, Helvetica, sans-serif;
 
-    background: var(--color-background);
-    color: var(--color-brown);
+    background:
+    linear-gradient(
+        180deg,
+        #fffaf6 0%,
+        #fff5ef 100%
+    );
+
+    color:#4d2b25;
 }
 
 
