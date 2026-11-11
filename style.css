@@ -13,6 +13,8 @@
     --color-surface: #fffaf5;
     --color-border: #eadfd5;
     --color-muted: #756761;
+    
+    --color-active-text: #ffd978;
 }
 
 html {
