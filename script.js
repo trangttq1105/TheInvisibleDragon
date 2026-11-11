@@ -618,35 +618,36 @@ function showPhase2Before() {
 // ============================================================
 
 function updateStageTimeline() {
+  const now = new Date();
 
-    const now = new Date();
+  let startTime;
 
-    const elapsed =
-        now.getTime() - specialEPDate.getTime();
+  // Determine which event timeline should follow
+  if (now < specialEPDate) {
+    startTime = trailerDate;
+  } else {
+    startTime = specialEPDate;
+  }
 
-    const stageTimes = [
-        0,
-        1.5,
-        3,
-        4.5,
-        6,
-        9,
-        13,
-        17
-    ];
+  const elapsed = now.getTime() - startTime.getTime();
 
-    let activeStage = -1;
+  // Stage start times in hours
+  const stageTimes = [0, 1.5, 3, 4.5, 6, 9, 13, 17];
 
-    stageTimes.forEach((hours, index) => {
+  let activeStage = -1;
 
-        const stageStart =
-            hours * 60 * 60 * 1000;
+  stageTimes.forEach((hours, index) => {
+    const stageStart = hours * 60 * 60 * 1000;
 
-        if (elapsed >= stageStart) {
-            activeStage = index;
-        }
+    if (elapsed >= stageStart) {
+      activeStage = index;
+    }
+  });
 
-    });
+  stageItems.forEach((stage, index) => {
+    stage.classList.toggle("active", index === activeStage);
+  });
+}
 
     stageItems.forEach((stage, index) => {
 
@@ -674,9 +675,8 @@ function showPhase2After() {
 
     afterEventMessage.classList.remove("hidden");
 
-    stageTimeline.classList.remove("hidden");
-
-    updateStageTimeline();
+stageTimeline.classList.remove("hidden");
+updateStageTimeline();
 
     countdownTitle.textContent =
         "24hours tracking time:";
