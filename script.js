@@ -165,6 +165,12 @@ const localTime =
 const afterEventMessage =
     document.getElementById("afterEventMessage");
 
+const stageTimeline =
+    document.getElementById("stageTimeline");
+
+const stageItems =
+    document.querySelectorAll(".stage-item");
+
 const countdownTitle =
     document.getElementById("countdownTitle");
 
@@ -576,6 +582,7 @@ function renderTrailerActions() {
 // ============================================================
 
 function showPhase2Before() {
+    stageTimeline.classList.add("hidden");
 
     eventMessage.innerHTML =
         "The Invisible Dragon Special EP will start at";
@@ -606,8 +613,55 @@ function showPhase2Before() {
 // ============================================================
 // PHASE 2 — AFTER SPECIAL EP
 // ============================================================
+// ============================================================
+// SPECIAL EP — STAGE TIMELINE
+// ============================================================
+
+function updateStageTimeline() {
+
+    const now = new Date();
+
+    const elapsed =
+        now.getTime() - specialEPDate.getTime();
+
+    const stageTimes = [
+        0,
+        1.5,
+        3,
+        4.5,
+        6,
+        9,
+        13,
+        17
+    ];
+
+    let activeStage = -1;
+
+    stageTimes.forEach((hours, index) => {
+
+        const stageStart =
+            hours * 60 * 60 * 1000;
+
+        if (elapsed >= stageStart) {
+            activeStage = index;
+        }
+
+    });
+
+    stageItems.forEach((stage, index) => {
+
+        stage.classList.toggle(
+            "active",
+            index === activeStage
+        );
+
+    });
+
+}
 
 function showPhase2After() {
+
+   function showPhase2After() {
 
     eventMessage.innerHTML =
         "<strong>The Invisible Dragon Special EP has started</strong>";
@@ -620,10 +674,12 @@ function showPhase2After() {
 
     afterEventMessage.classList.remove("hidden");
 
+    stageTimeline.classList.remove("hidden");
+
+    updateStageTimeline();
 
     countdownTitle.textContent =
         "24hours tracking time:";
-
 
     renderPhase2AfterActions();
 
