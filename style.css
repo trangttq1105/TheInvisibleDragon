@@ -194,82 +194,6 @@ body {
     display: none !important;
 }
 
-/* =========================
-   8 STAGE TIMELINE
-========================= */
-
-.stage-timeline {
-    display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    gap: 6px;
-
-    width: 100%;
-    margin: 16px auto;
-}
-
-.stage-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    min-width: 0;
-    min-height: 62px;
-
-    padding: 7px 3px;
-
-    background: #f3eee9;
-    border: 1px solid #eadfd5;
-    border-radius: 7px;
-
-    opacity: 0.45;
-
-    text-align: center;
-
-    transition:
-        background 0.3s ease,
-        border-color 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.stage-number {
-    display: block;
-
-    margin-bottom: 5px;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    color: #756761;
-}
-
-.stage-name {
-    display: block;
-
-    font-size: 10px;
-    line-height: 1.25;
-    font-weight: 600;
-
-    color: #756761;
-
-    overflow-wrap: anywhere;
-}
-
-/* ACTIVE STAGE */
-
-.stage-item.active {
-    background: #9d2f2f;
-    border-color: #9d2f2f;
-
-    opacity: 1;
-
-    box-shadow: 0 2px 7px rgba(157, 47, 47, 0.2);
-}
-
-.stage-item.active .stage-number,
-.stage-item.active .stage-name {
-    color: #ffd978;
-}
 
 /* =========================
    COUNTDOWN BOX
@@ -550,23 +474,4 @@ body {
         font-size: 11px;
         padding: 8px 10px;
     }
-
-    .stage-timeline {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 7px;
-    margin: 14px auto;
-}
-
-.stage-item {
-    min-height: 60px;
-    padding: 7px 4px;
-}
-
-.stage-number {
-    font-size: 9px;
-}
-
-.stage-name {
-    font-size: 10px;
-}
 }
