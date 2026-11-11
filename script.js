@@ -18,7 +18,7 @@ const CONFIG = {
     // Thailand time / GMT+7
     // ========================================================
 
-    specialEPTime: "2026-11-13T21:00:00+07:00",
+    specialEPTime: "2026-11-13T21:45:00+07:00",
 
 
     // ========================================================
@@ -165,12 +165,6 @@ const localTime =
 const afterEventMessage =
     document.getElementById("afterEventMessage");
 
-const stageTimeline =
-    document.getElementById("stageTimeline");
-
-const stageItems =
-    document.querySelectorAll(".stage-item");
-
 const countdownTitle =
     document.getElementById("countdownTitle");
 
@@ -216,46 +210,6 @@ const specialEP24hDate =
         specialEPDate.getTime() + 24 * 60 * 60 * 1000
     );
 
-
-// ============================================================
-// UPDATE STAGE TIMELINE
-// ============================================================
-
-function updateStageTimeline(startTime) {
-
-    const now = new Date();
-
-    const elapsed =
-        now.getTime() - startTime.getTime();
-
-    // Stage start times in hours
-    const stageTimes = [
-        0, 1.5, 3, 4.5, 6, 9, 13, 17
-    ];
-
-    let activeStage = -1;
-
-    stageTimes.forEach((hours, index) => {
-
-        const stageStart =
-            hours * 60 * 60 * 1000;
-
-        if (elapsed >= stageStart) {
-            activeStage = index;
-        }
-
-    });
-
-    stageItems.forEach((stage, index) => {
-
-        stage.classList.toggle(
-            "active",
-            index === activeStage
-        );
-
-    });
-
-}
 
 // ============================================================
 // FORMAT DATE
@@ -446,7 +400,6 @@ function createTextBox(text) {
 // ============================================================
 
 function showPhase1Before() {
-    stageTimeline.classList.add("hidden");
 
     streamingColumnTitle.textContent = "STREAMING";
 trendingColumnTitle.textContent = "TRENDING";
@@ -495,9 +448,6 @@ trendingActions.appendChild(
 // ============================================================
 
 function showPhase1After() {
-
-    stageTimeline.classList.remove("hidden");
-updateStageTimeline(trailerDate);
 
     streamingColumnTitle.textContent = "STREAMING";
 trendingColumnTitle.textContent = "TRENDING";
@@ -626,7 +576,6 @@ function renderTrailerActions() {
 // ============================================================
 
 function showPhase2Before() {
-    stageTimeline.classList.add("hidden");
 
     eventMessage.innerHTML =
         "The Invisible Dragon Special EP will start at";
@@ -657,57 +606,8 @@ function showPhase2Before() {
 // ============================================================
 // PHASE 2 — AFTER SPECIAL EP
 // ============================================================
-// ============================================================
-// SPECIAL EP — STAGE TIMELINE
-// ============================================================
-
-function updateStageTimeline() {
-  const now = new Date();
-
-  let startTime;
-
-  // Determine which event timeline should follow
-  if (now < specialEPDate) {
-    startTime = trailerDate;
-  } else {
-    startTime = specialEPDate;
-  }
-
-  const elapsed = now.getTime() - startTime.getTime();
-
-  // Stage start times in hours
-  const stageTimes = [0, 1.5, 3, 4.5, 6, 9, 13, 17];
-
-  let activeStage = -1;
-
-  stageTimes.forEach((hours, index) => {
-    const stageStart = hours * 60 * 60 * 1000;
-
-    if (elapsed >= stageStart) {
-      activeStage = index;
-    }
-  });
-
-  stageItems.forEach((stage, index) => {
-    stage.classList.toggle("active", index === activeStage);
-  });
-}
-
-    stageItems.forEach((stage, index) => {
-
-        stage.classList.toggle(
-            "active",
-            index === activeStage
-        );
-
-    });
-
-}
 
 function showPhase2After() {
-
-  stageTimeline.classList.remove("hidden");
-updateStageTimeline(specialEPDate);
 
     eventMessage.innerHTML =
         "<strong>The Invisible Dragon Special EP has started</strong>";
@@ -720,8 +620,10 @@ updateStageTimeline(specialEPDate);
 
     afterEventMessage.classList.remove("hidden");
 
+
     countdownTitle.textContent =
         "24hours tracking time:";
+
 
     renderPhase2AfterActions();
 
