@@ -475,3 +475,98 @@ body {
         padding: 8px 10px;
     }
 }
+
+
+/* =========================
+   SPECIAL EP STAGE TRACKER
+========================= */
+
+.special-ep-stage {
+    width: 100%;
+    margin-bottom: 2px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+
+    text-align: center;
+}
+
+
+/* ROW 1 — NOW / STAGE */
+
+.stage-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 7px 12px;
+
+    background: var(--color-primary);
+
+    color: var(--color-active-text);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* ROW 2 — STAGE NAME */
+
+.stage-name {
+    padding: 10px 8px;
+
+    background: var(--color-primary);
+
+    color: var(--color-active-text);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ROW 3 — DESCRIPTION */
+
+.stage-description {
+    padding: 14px 12px;
+
+    background: #f4dede;
+
+    color: var(--color-brown);
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .stage-top {
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+    .stage-name {
+        font-size: 14px;
+        padding: 9px 6px;
+    }
+
+    .stage-description {
+        font-size: 11px;
+        padding: 12px 10px;
+    }
+
+}
+
