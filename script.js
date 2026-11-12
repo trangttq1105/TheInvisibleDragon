@@ -677,6 +677,149 @@ function renderPhase2BeforeActions() {
 
 
 // ============================================================
+// SPECIAL EP — 8 STAGE TRACKER
+// ============================================================
+
+const SPECIAL_EP_STAGES = [
+    {
+        name: "GLOBAL LAUNCH",
+        minutes: 0,
+        description:
+            "Start posting with the official hashtag! Like, repost and reply!"
+    },
+    {
+        name: "COUNTRY PUSH",
+        minutes: 90,
+        description:
+            "Engage with as many different posts as possible. Like, repost and reply!"
+    },
+    {
+        name: "POST & ENGAGE",
+        minutes: 180,
+        description:
+            "Create new posts with the official hashtag. Reply to others and start discussions!"
+    },
+    {
+        name: "TOP POSTS BOOST",
+        minutes: 270,
+        description:
+            "Tap the hashtag and interact with posts. Like, repost and reply!"
+    },
+    {
+        name: "EPISODE FOCUS",
+        minutes: 360,
+        description:
+            "Watch the episode on the official platform. Share your thoughts!"
+    },
+    {
+        name: "REGIONAL PUSH",
+        minutes: 540,
+        description:
+            "Europe & America, it's your turn! Keep the global trend going!"
+    },
+    {
+        name: "ASIA FOCUS",
+        minutes: 780,
+        description:
+            "Asia, your turn! Keep posting & engaging!"
+    },
+    {
+        name: "GLOBAL FINAL PUSH",
+        minutes: 1020,
+        description:
+            "One last push! Every post, every hashtag matters!"
+    }
+];
+
+
+function getCurrentSpecialEPStage() {
+
+    const now = new Date();
+
+    const elapsedMinutes =
+        (now.getTime() - specialEPDate.getTime()) / 60000;
+
+    let currentStage = SPECIAL_EP_STAGES[0];
+
+    SPECIAL_EP_STAGES.forEach(stage => {
+
+        if (elapsedMinutes >= stage.minutes) {
+            currentStage = stage;
+        }
+
+    });
+
+    return currentStage;
+
+}
+
+
+function createSpecialEPStageTracker() {
+
+    const stage = getCurrentSpecialEPStage();
+
+    const tracker =
+        document.createElement("div");
+
+    tracker.className = "special-ep-stage";
+
+
+    // ROW 1 — NOW / STAGE
+
+    const top =
+        document.createElement("div");
+
+    top.className = "stage-top";
+
+    const nowLabel =
+        document.createElement("span");
+
+    nowLabel.textContent = "NOW:";
+
+    const stageLabel =
+        document.createElement("span");
+
+    const stageNumber =
+        SPECIAL_EP_STAGES.indexOf(stage) + 1;
+
+    stageLabel.textContent =
+        `STAGE ${stageNumber}`;
+
+
+    top.appendChild(nowLabel);
+    top.appendChild(stageLabel);
+
+
+    // ROW 2 — STAGE NAME
+
+    const name =
+        document.createElement("div");
+
+    name.className = "stage-name";
+
+    name.textContent = stage.name;
+
+
+    // ROW 3 — DESCRIPTION
+
+    const description =
+        document.createElement("div");
+
+    description.className = "stage-description";
+
+    description.textContent = stage.description;
+
+
+    tracker.appendChild(top);
+    tracker.appendChild(name);
+    tracker.appendChild(description);
+
+    return tracker;
+
+}
+
+
+// ============================================================
 // PHASE 2 — AFTER ACTIONS
 // ============================================================
 
@@ -760,6 +903,12 @@ function renderPhase2AfterActions() {
     // TRENDING
     // -----------------------------
 
+    // SPECIAL EP STAGE TRACKER
+
+trendingActions.appendChild(
+    createSpecialEPStageTracker()
+);
+    
     trendingActions.appendChild(
 
         createTextBox(
