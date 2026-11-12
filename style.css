@@ -538,9 +538,9 @@ body {
 .stage-description {
     padding: 14px 12px;
 
-    background: #f4dede;
+    background: #fffaf5;
 
-    color: var(--color-brown);
+    color: var(--color-primary);
 
     font-size: 12px;
     line-height: 1.6;
